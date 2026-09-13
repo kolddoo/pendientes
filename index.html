@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Pendientes</title>
+  
+  <!-- PWA & Mobile Capabilities -->
+  <meta name="theme-color" content="#f8fafc" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Pendientes" />
+  <meta name="description" content="Calculadora de pendientes, distancia horizontal y altura vertical para arquitectura y construcción." />
+
+  <!-- Custom SVG Favicon & Apple Touch Icon (Base64) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MjQgODEwIiB3aWR0aD0iODI0IiBoZWlnaHQ9IjgxMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsbGVkYnk9InRpdGxlIGRlc2MiPgogIDx0aXRsZSBpZD0idGl0bGUiPkljb25vIGRlIHBvcmNlbnRhamUgeSByYW1wYTwvdGl0bGU+CiAgPGRlc2MgaWQ9ImRlc2MiPkZvbmRvIHR1cnF1ZXNhIGNvbiB1biBzw61tYm9sbyBkZSBwb3JjZW50YWplIGJsYW5jbyB5IHVuYSByYW1wYSB0cmlhbmd1bGFyIGJsYW5jYS48L2Rlc2M+CgogIDxyZWN0IHdpZHRoPSI4MjQiIGhlaWdodD0iODEwIiBmaWxsPSIjMDhjMmI1Ii8+CgogIDwhLS0gUGVyY2VudGFnZSBzeW1ib2wgLS0+CiAgPHBhdGggZmlsbD0iI2ZmZiIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSIKICAgIE0gMjMxIDIxMQogICAgQyAyNjEgMjExIDI4MCAyMzMgMjgwIDI2NgogICAgQyAyODAgMjk5IDI2MSAzMjIgMjMxIDMyMgogICAgQyAyMDEgMzIyIDE4MiAyOTkgMTgyIDI2NgogICAgQyAxODIgMjMzIDIwMSAyM1EgMjMxIDIxMSBaCiAgICBNIDIzMSAyNDMsCiAgICBDIDIyMiAyNDMgMjE3IDI1MiAyMTcgMjY2CiAgICBDIDIxNyAyODAgMjIyIDI5MCAyMzEgMjkwCiAgICBDIDI0MCAyOTAgMjQ0IDI4MCAyNDQgMjY2CiAgICBDIDI0NCAyNTIgMjQwIDI0MyAyMzEgMjQzIFoiLz4KCSA8cGF0aCBkPSJNIDIyNSA0MjQgTCAzODAgMjI1IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMzEiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgoKICA8cGF0aCBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9IgogICAgTSAzNzcgMzI2CiAgICBDIDQwNyAzMjYgNDI3IDM0OCA0MjcgMzgxCiAgICBDIDQyNyA0MTQgNDA3IDQzNyAzNzcgNDM3CiAgICBDIDM0NyA0MzcgMzI3IDQxNCAzMjcgMzgxCiAgICBDIDMyNyAzNDggMzQ3IDMyNiAzNzcgMzI2IFoKICAgIE0gMzc3IDM1NwogICAgQyAzNjggMzU3IDM2NCAzNjcgMzY0IDM4MQogICAgQyAzNjQgMzk1IDM2OCA0MDUgMzc3IDQwNQogICAgQyAzODYgNDA1IDM5MSAzNTcgMzk1IDM4MQogICAgQyAzOTEgMzY3IDM4NiAzNTcgMzc3IDM1NyBaIi8+CgogIDwhLS0gUmFtcCAtLT4KICA8cGF0aCBmaWxsPSIjZmZmIiBkPSIKICAgIE0gMTU4IDY0MQogICAgQyAxNDkgNjQxIDE0MyA2MzUgMTQzIDYyNgogICAgQyAxNDMgNjE5IDE0NyA2MTMgMTUzIDYwOQogICAgTCA2NTUgMzM0CiAgICBDIDY2NSAzMjkgNjc5IDMzNSA2NzkgMzQ2CiAgICBMIDY3OSA2MjUKICAgIEMgNjc5IDYzNSA2NzMgNjQxIDY2MyA2NDEKICAgIFoiLz4KPC9zdmc+Cg==" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MjQgODEwIiB3aWR0aD0iODI0IiBoZWlnaHQ9IjgxMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsbGVkYnk9InRpdGxlIGRlc2MiPgogIDx0aXRsZSBpZD0idGl0bGUiPkljb25vIGRlIHBvcmNlbnRhamUgeSByYW1wYTwvdGl0bGU+CiAgPGRlc2MgaWQ9ImRlc2MiPkZvbmRvIHR1cnF1ZXNhIGNvbiB1biBzw61tYm9sbyBkZSBwb3JjZW50YWplIGJsYW5jbyB5IHVuYSByYW1wYSB0cmlhbmd1bGFyIGJsYW5jYS48L2Rlc2M+CgogIDxyZWN0IHdpZHRoPSI4MjQiIGhlaWdodD0iODEwIiBmaWxsPSIjMDhjMmI1Ii8+CgogIDwhLS0gUGVyY2VudGFnZSBzeW1ib2wgLS0+CiAgPHBhdGggZmlsbD0iI2ZmZiIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSIKICAgIE0gMjMxIDIxMQogICAgQyAyNjEgMjExIDI4MCAyMzMgMjgwIDI2NgogICAgQyAyODAgMjk5IDI2MSAzMjIgMjMxIDMyMgogICAgQyAyMDEgMzIyIDE4MiAyOTkgMTgyIDI2NgogICAgQyAxODIgMjMzIDIwMSAyM1EgMjMxIDIxMSBaCiAgICBNIDIzMSAyNDMsCiAgICBDIDIyMiAyNDMgMjE3IDI1MiAyMTcgMjY2CiAgICBDIDIxNyAyODAgMjIyIDI5MCAyMzEgMjkwCiAgICBDIDI0MCAyOTAgMjQ0IDI4MCAyNDQgMjY2CiAgICBDIDI0NCAyNTIgMjQwIDI0MyAyMzEgMjQzIFoiLz4KCSA8cGF0aCBkPSJNIDIyNSA0MjQgTCAzODAgMjI1IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMzEiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgoKICA8cGF0aCBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9IgogICAgTSAzNzcgMzI2CiAgICBDIDQwNyAzMjYgNDI3IDM0OCA0MjcgMzgxCiAgICBDIDQyNyA0MTQgNDA3IDQzNyAzNzcgNDM3CiAgICBDIDM0NyA0MzcgMzI3IDQxNCAzMjcgMzgxCiAgICBDIDMyNyAzNDggMzQ3IDMyNiAzNzcgMzI2IFoKICAgIE0gMzc3IDM1NwogICAgQyAzNjggMzU3IDM2NCAzNjcgMzY0IDM4MQogICAgQyAzNjQgMzk1IDM2OCA0MDUgMzc3IDQwNQogICAgQyAzODYgNDA1IDM5MSAzNTcgMzk1IDM4MQogICAgQyAzOTEgMzY3IDM4NiAzNTcgMzc3IDM1NyBaIi8+CgogIDwhLS0gUmFtcCAtLT4KICA8cGF0aCBmaWxsPSIjZmZmIiBkPSIKICAgIE0gMTU4IDY0MQogICAgQyAxNDkgNjQxIDE0MyA2MzUgMTQzIDYyNgogICAgQyAxNDMgNjE5IDE0NyA2MTMgMTUzIDYwOQogICAgTCA2NTUgMzM0CiAgICBDIDY2NSAzMjkgNjc5IDMzNSA2NzkgMzQ2CiAgICBMIDY3OSA2MjUKICAgIEMgNjc5IDYzNSA2NzMgNjQxIDY2MyA2NDEKICAgIFoiLz4KPC9zdmc+Cg==" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
+          },
+          colors: {
+            arch: {
+              bg: '#f8fafc',
+              card: '#ffffff',
+              border: '#e2e8f0',
+              text: '#0f172a',
+              muted: '#64748b',
+              line: '#94a3b8',
+              lineDark: '#475569',
+              accent: '#2563eb'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Prevent text zooming on iOS input focus */
+    input {
+      font-size: 16px !important;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+
+    /* Custom focus outlines for high accessibility */
+    input:focus {
+      outline: none;
+    }
+
+    /* SVG smooth typography rendering */
+    text {
+      user-select: none;
+      -webkit-user-select: none;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+
+    /* Crisp lines for SVG wireframe */
+    .arch-line {
+      vector-effect: non-scaling-stroke;
+    }
+  </style>
+</head>
+<body class="bg-arch-bg text-arch-text min-h-screen font-sans flex flex-col items-center justify-start p-4 sm:p-6 md:p-8 antialiased selection:bg-slate-200">
+
+  <!-- Main Container -->
+  <main class="w-full max-w-sm sm:max-w-md my-auto flex flex-col gap-5">
+
+    <!-- App Header Title with Emoji Icon -->
+    <header class="flex items-center justify-start pt-2 px-1">
+      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 flex items-center gap-2 select-none">
+        <span class="text-3xl sm:text-4xl">📐</span>
+        <span>Pendientes</span>
+      </h1>
+    </header>
+
+    <!-- Top Section: Inputs Header / Form -->
+    <section class="bg-arch-card rounded-2xl p-4 sm:p-5 shadow-sm border border-arch-border flex flex-col gap-3.5" aria-label="Calculadora de pendientes">
+      
+      <!-- Row 1: Pendiente -->
+      <div class="flex items-center justify-between gap-2 min-h-[4.5rem] py-1">
+        <div class="w-24 sm:w-28 flex flex-col justify-center select-none">
+          <label for="input-slope" class="text-base sm:text-lg font-bold text-arch-text cursor-pointer">
+            Pendiente
+          </label>
+        </div>
+        <div id="container-slope" class="flex-1 flex items-center bg-slate-50 border border-arch-border rounded-2xl px-3 sm:px-4 h-16 sm:h-20 transition-all gap-2">
+          <span id="badge-slope" class="hidden shrink-0 inline-flex items-center text-xs font-semibold text-sky-600 bg-sky-100/90 rounded-full px-2.5 py-1 select-none">
+            Calculado
+          </span>
+          <input 
+            id="input-slope" 
+            type="text" 
+            inputmode="decimal" 
+            placeholder="0" 
+            autocomplete="off"
+            aria-label="Pendiente en porcentaje"
+            class="w-full bg-transparent text-right font-bold text-arch-text text-2xl sm:text-3xl focus:outline-none pr-1.5"
+          />
+          <span class="text-arch-muted text-lg sm:text-xl font-semibold w-6 text-center select-none">%</span>
+          <button 
+            type="button" 
+            id="btn-clear-slope" 
+            aria-label="Borrar pendiente"
+            class="ml-1 sm:ml-2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-200/80 hover:bg-slate-300 text-slate-600 flex items-center justify-center text-base sm:text-lg font-bold shrink-0 transition-colors active:scale-95 focus:outline-none"
+          >
+            ✕
+          </button>
+        </div>
+      </div>
+
+      <!-- Row 2: Horizontal -->
+      <div class="flex items-center justify-between gap-2 min-h-[4.5rem] py-1">
+        <div class="w-24 sm:w-28 flex flex-col justify-center select-none">
+          <label for="input-horizontal" class="text-base sm:text-lg font-bold text-arch-text cursor-pointer">
+            Horizontal
+          </label>
+        </div>
+        <div id="container-horizontal" class="flex-1 flex items-center bg-slate-50 border border-arch-border rounded-2xl px-3 sm:px-4 h-16 sm:h-20 transition-all gap-2">
+          <span id="badge-horizontal" class="hidden shrink-0 inline-flex items-center text-xs font-semibold text-sky-600 bg-sky-100/90 rounded-full px-2.5 py-1 select-none">
+            Calculado
+          </span>
+          <input 
+            id="input-horizontal" 
+            type="text" 
+            inputmode="decimal" 
+            placeholder="0" 
+            autocomplete="off"
+            aria-label="Distancia horizontal en metros"
+            class="w-full bg-transparent text-right font-bold text-arch-text text-2xl sm:text-3xl focus:outline-none pr-1.5"
+          />
+          <span class="text-arch-muted text-lg sm:text-xl font-semibold w-6 text-center select-none">m</span>
+          <button 
+            type="button" 
+            id="btn-clear-horizontal" 
+            aria-label="Borrar distancia horizontal"
+            class="ml-1 sm:ml-2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-200/80 hover:bg-slate-300 text-slate-600 flex items-center justify-center text-base sm:text-lg font-bold shrink-0 transition-colors active:scale-95 focus:outline-none"
+          >
+            ✕
+          </button>
+        </div>
+      </div>
+
+      <!-- Row 3: Vertical -->
+      <div class="flex items-center justify-between gap-2 min-h-[4.5rem] py-1">
+        <div class="w-24 sm:w-28 flex flex-col justify-center select-none">
+          <label for="input-vertical" class="text-base sm:text-lg font-bold text-arch-text cursor-pointer">
+            Vertical
+          </label>
+        </div>
+        <div id="container-vertical" class="flex-1 flex items-center bg-slate-50 border border-arch-border rounded-2xl px-3 sm:px-4 h-16 sm:h-20 transition-all gap-2">
+          <span id="badge-vertical" class="hidden shrink-0 inline-flex items-center text-xs font-semibold text-sky-600 bg-sky-100/90 rounded-full px-2.5 py-1 select-none">
+            Calculado
+          </span>
+          <input 
+            id="input-vertical" 
+            type="text" 
+            inputmode="decimal" 
+            placeholder="0" 
+            autocomplete="off"
+            aria-label="Altura vertical en metros"
+            class="w-full bg-transparent text-right font-bold text-arch-text text-2xl sm:text-3xl focus:outline-none pr-1.5"
+          />
+          <span class="text-arch-muted text-lg sm:text-xl font-semibold w-6 text-center select-none">m</span>
+          <button 
+            type="button" 
+            id="btn-clear-vertical" 
+            aria-label="Borrar altura vertical"
+            class="ml-1 sm:ml-2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-200/80 hover:bg-slate-300 text-slate-600 flex items-center justify-center text-base sm:text-lg font-bold shrink-0 transition-colors active:scale-95 focus:outline-none"
+          >
+            ✕
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Bottom Section: Architectural Ramp SVG Wireframe -->
+    <section class="w-full flex flex-col items-center justify-center pt-2 pb-1" aria-label="Esquema gráfico de la pendiente">
+      <svg 
+        id="ramp-svg" 
+        viewBox="0 0 420 230" 
+        class="w-full h-auto overflow-visible select-none"
+        aria-hidden="true"
+      >
+        <!-- Group translated horizontally to center the drawing in the viewBox -->
+        <g transform="translate(33, 0)">
+          <!-- Wireframe Perspective Ramp Geometry -->
+          <g stroke="#64748b" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round" class="arch-line">
+            
+            <!-- Base plane back edge (dashed for perspective projection) -->
+            <line x1="85" y1="135" x2="315" y2="135" stroke="#cbd5e1" stroke-dasharray="3 3" />
+            
+            <!-- Base plane left depth edge (dashed) -->
+            <line x1="30" y1="180" x2="85" y2="135" stroke="#cbd5e1" stroke-dasharray="3 3" />
+
+            <!-- Base Front Line (Horizontal indicator line) -->
+            <line x1="30" y1="180" x2="260" y2="180" stroke="#475569" stroke-width="1.6" />
+            
+            <!-- Back Right Depth Base Line -->
+            <line x1="260" y1="180" x2="315" y2="135" stroke="#94a3b8" />
+            
+            <!-- Front Vertical Height Edge (Strictly vertical at x=260) -->
+            <line x1="260" y1="180" x2="260" y2="80" stroke="#475569" stroke-width="1.6" />
+            
+            <!-- Back Vertical Height Edge -->
+            <line x1="315" y1="135" x2="315" y2="35" stroke="#94a3b8" />
+            
+            <!-- Inclined Ramp Surface Outlines -->
+            <line x1="30" y1="180" x2="260" y2="80" stroke="#334155" stroke-width="1.8" />
+            <line x1="85" y1="135" x2="315" y2="35" stroke="#64748b" stroke-width="1.2" />
+            <line x1="260" y1="80" x2="315" y2="35" stroke="#64748b" stroke-width="1.2" />
+            <line x1="30" y1="180" x2="85" y2="135" stroke="#64748b" stroke-width="1.2" />
+          </g>
+
+          <!-- Dynamic Labels on SVG -->
+          <!-- 1. Pendiente: centered over inclined surface -->
+          <g transform="translate(148, 88) rotate(-21)">
+            <rect x="-42" y="-14" width="84" height="22" rx="4" fill="#f8fafc" fill-opacity="0.85" />
+            <text 
+              id="svg-text-slope" 
+              x="0" 
+              y="2" 
+              text-anchor="middle" 
+              fill="#0f172a" 
+              font-size="14" 
+              font-weight="700"
+            >
+              4 %
+            </text>
+          </g>
+
+          <!-- 2. Horizontal: centered below front base edge -->
+          <g transform="translate(145, 204)">
+            <rect x="-40" y="-13" width="80" height="20" rx="4" fill="#f8fafc" fill-opacity="0.85" />
+            <text 
+              id="svg-text-horizontal" 
+              x="0" 
+              y="2" 
+              text-anchor="middle" 
+              fill="#334155" 
+              font-size="13" 
+              font-weight="600"
+            >
+              10 m
+            </text>
+          </g>
+
+          <!-- 3. Vertical: placed strictly to the right of the front vertical edge (x=260), left-aligned -->
+          <g transform="translate(268, 110)">
+            <text 
+              id="svg-text-vertical" 
+              x="0" 
+              y="4" 
+              text-anchor="start" 
+              fill="#334155" 
+              font-size="13" 
+              font-weight="600"
+            >
+              0,4 m
+            </text>
+          </g>
+        </g>
+
+      </svg>
+    </section>
+
+  </main>
+
+  <script>
+    (function registerPWA() {
+      const iconSvg = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MjQgODEwIiB3aWR0aD0iODI0IiBoZWlnaHQ9IjgxMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsbGVkYnk9InRpdGxlIGRlc2MiPgogIDx0aXRsZSBpZD0idGl0bGUiPkljb25vIGRlIHBvcmNlbnRhamUgeSByYW1wYTwvdGl0bGU+CiAgPGRlc2MgaWQ9ImRlc2MiPkZvbmRvIHR1cnF1ZXNhIGNvbiB1biBzw61tYm9sbyBkZSBwb3JjZW50YWplIGJsYW5jbyB5IHVuYSByYW1wYSB0cmlhbmd1bGFyIGJsYW5jYS48L2Rlc2M+CgogIDxyZWN0IHdpZHRoPSI4MjQiIGhlaWdodD0iODEwIiBmaWxsPSIjMDhjMmI1Ii8+CgogIDwhLS0gUGVyY2VudGFnZSBzeW1ib2wgLS0+CiAgPHBhdGggZmlsbD0iI2ZmZiIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSIKICAgIE0gMjMxIDIxMQogICAgQyAyNjEgMjExIDI4MCAyMzMgMjgwIDI2NgogICAgQyAyODAgMjk5IDI2MSAzMjIgMjMxIDMyMgogICAgQyAyMDEgMzIyIDE4MiAyOTkgMTgyIDI2NgogICAgQyAxODIgMjMzIDIwMSAyM1EgMjMxIDIxMSBaCiAgICBNIDIzMSAyNDMsCiAgICBDIDIyMiAyNDMgMjE3IDI1MiAyMTcgMjY2CiAgICBDIDIxNyAyODAgMjIyIDI5MCAyMzEgMjkwCiAgICBDIDI0MCAyOTAgMjQ0IDI4MCAyNDQgMjY2CiAgICBDIDI0NCAyNTIgMjQwIDI0MyAyMzEgMjQzIFoiLz4KCSA8cGF0aCBkPSJNIDIyNSA0MjQgTCAzODAgMjI1IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMzEiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgoKICA8cGF0aCBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9IgogICAgTSAzNzcgMzI2CiAgICBDIDQwNyAzMjYgNDI3IDM0OCA0MjcgMzgxCiAgICBDIDQyNyA0MTQgNDA3IDQzNyAzNzcgNDM3CiAgICBDIDM0NyA0MzcgMzI3IDQxNCAzMjcgMzgxCiAgICBDIDMyNyAzNDggMzQ3IDMyNiAzNzcgMzI2IFoKICAgIE0gMzc3IDM1NwogICAgQyAzNjggMzU3IDM2NCAzNjcgMzY0IDM4MQogICAgQyAzNjQgMzk1IDM2OCA0MDUgMzc3IDQwNQogICAgQyAzODYgNDA1IDM5MSAzNTcgMzk1IDM4MQogICAgQyAzOTEgMzY3IDM4NiAzNTcgMzc3IDM1NyBaIi8+CgogIDwhLS0gUmFtcCAtLT4KICA8cGF0aCBmaWxsPSIjZmZmIiBkPSIKICAgIE0gMTU4IDY0MQogICAgQyAxNDkgNjQxIDE0MyA2MzUgMTQzIDYyNgogICAgQyAxNDMgNjE5IDE0NyA2MTMgMTUzIDYwOQogICAgTCA2NTUgMzM0CiAgICBDIDY2NSAzMjkgNjc5IDMzNSA2NzkgMzQ2CiAgICBMIDY3OSA2MjUKICAgIEMgNjc5IDYzNSA2NzMgNjQxIDY2MyA2NDEKICAgIFoiLz4KPC9zdmc+Cg==";
+      const manifest = {
+        name: "Pendientes",
+        short_name: "Pendientes",
+        start_url: ".",
+        display: "standalone",
+        background_color: "#f8fafc",
+        theme_color: "#08c2b5",
+        icons: [
+          {
+            src: iconSvg,
+            sizes: "192x192 512x512",
+            type: "image/svg+xml",
+            purpose: "any maskable"
+          }
+        ]
+      };
+      const manifestBlob = new Blob([JSON.stringify(manifest)], { type: 'application/json' });
+      const manifestURL = URL.createObjectURL(manifestBlob);
+      const link = document.createElement('link');
+      link.rel = 'manifest';
+      link.href = manifestURL;
+      document.head.appendChild(link);
+    })();
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // DOM Elements
+      const inputSlope = document.getElementById('input-slope');
+      const inputHorizontal = document.getElementById('input-horizontal');
+      const inputVertical = document.getElementById('input-vertical');
+
+      const btnClearSlope = document.getElementById('btn-clear-slope');
+      const btnClearHorizontal = document.getElementById('btn-clear-horizontal');
+      const btnClearVertical = document.getElementById('btn-clear-vertical');
+
+      const svgSlope = document.getElementById('svg-text-slope');
+      const svgHorizontal = document.getElementById('svg-text-horizontal');
+      const svgVertical = document.getElementById('svg-text-vertical');
+
+      // Order of user modifications tracking.
+      let lastInteractions = ['slope', 'horizontal'];
+
+      // Numeric Values State
+      let values = {
+        slope: 4,
+        horizontal: 10,
+        vertical: 0.4
+      };
+
+      /**
+       * Parse user input text into valid positive number or null
+       */
+      function parseNumber(str) {
+        if (str === null || str === undefined || str === '') return null;
+        const cleanStr = str.toString().trim().replace(',', '.');
+        const num = parseFloat(cleanStr);
+        if (isNaN(num) || !isFinite(num) || num < 0) return null;
+        return num;
+      }
+
+      /**
+       * Format number for display (uses comma decimal, rounds reasonably, strips trailing zeros)
+       */
+      function formatNumber(num) {
+        if (num === null || isNaN(num) || !isFinite(num)) return '';
+        const rounded = Math.round((num + Number.EPSILON) * 1000) / 1000;
+        return rounded.toString().replace('.', ',');
+      }
+
+      /**
+       * Update user interaction order array
+       */
+      function markFieldAsEdited(fieldKey) {
+        lastInteractions = lastInteractions.filter(key => key !== fieldKey);
+        lastInteractions.push(fieldKey);
+        if (lastInteractions.length > 2) {
+          lastInteractions = lastInteractions.slice(-2);
+        }
+      }
+
+      /**
+       * Recalculate target variable based on the two most recently edited variables
+       */
+      function recalculate() {
+        const fields = ['slope', 'horizontal', 'vertical'];
+        
+        // Target field is the one NOT present in the last 2 interactions
+        const calculatedKey = fields.find(f => !lastInteractions.includes(f)) || 'vertical';
+
+        const [f1, f2] = lastInteractions;
+
+        // Ensure we have two valid manual values to perform calculation
+        if (values[f1] !== null && values[f2] !== null) {
+          if (calculatedKey === 'vertical') {
+            if (values.horizontal > 0 && values.slope >= 0) {
+              values.vertical = (values.horizontal * values.slope) / 100;
+            } else {
+              values.vertical = null;
+            }
+          } else if (calculatedKey === 'horizontal') {
+            if (values.slope > 0 && values.vertical >= 0) {
+              values.horizontal = (values.vertical * 100) / values.slope;
+            } else {
+              values.horizontal = null;
+            }
+          } else if (calculatedKey === 'slope') {
+            if (values.horizontal > 0 && values.vertical >= 0) {
+              values.slope = (values.vertical / values.horizontal) * 100;
+            } else {
+              values.slope = null;
+            }
+          }
+        } else {
+          values[calculatedKey] = null;
+        }
+
+        updateUI(calculatedKey);
+      }
+
+      /**
+       * Update DOM input values, calculated badges, and SVG texts
+       * @param {string|null} calculatedKey - field that was automatically updated
+       */
+      function updateUI(calculatedKey = null) {
+        const fields = ['slope', 'horizontal', 'vertical'];
+
+        fields.forEach(key => {
+          const inputEl = document.getElementById(`input-${key}`);
+          const badgeEl = document.getElementById(`badge-${key}`);
+          const containerEl = document.getElementById(`container-${key}`);
+
+          // Update input text if it's the calculated field OR if user is not currently typing into it
+          if (key === calculatedKey || document.activeElement !== inputEl) {
+            inputEl.value = formatNumber(values[key]);
+          }
+
+          // Toggle "Calculado" badge & blue input outline styling
+          if (key === calculatedKey && values[key] !== null) {
+            badgeEl.classList.remove('hidden');
+            containerEl.classList.add('border-sky-400', 'bg-sky-50/50', 'ring-1', 'ring-sky-300/50');
+            containerEl.classList.remove('bg-slate-50', 'border-arch-border');
+          } else {
+            badgeEl.classList.add('hidden');
+            containerEl.classList.remove('border-sky-400', 'bg-sky-50/50', 'ring-1', 'ring-sky-300/50');
+            containerEl.classList.add('bg-slate-50', 'border-arch-border');
+          }
+        });
+
+        // Update SVG Schematic Text Values
+        svgSlope.textContent = values.slope !== null ? `${formatNumber(values.slope)} %` : '— %';
+        svgHorizontal.textContent = values.horizontal !== null ? `${formatNumber(values.horizontal)} m` : '— m';
+        svgVertical.textContent = values.vertical !== null ? `${formatNumber(values.vertical)} m` : '— m';
+      }
+
+      /**
+       * Input Handler
+       */
+      function handleInput(fieldKey, element) {
+        const rawValue = element.value;
+        values[fieldKey] = parseNumber(rawValue);
+        markFieldAsEdited(fieldKey);
+        recalculate();
+      }
+
+      /**
+       * Clear Button Handler
+       */
+      function handleClear(fieldKey, element) {
+        element.value = '';
+        values[fieldKey] = null;
+        markFieldAsEdited(fieldKey);
+        recalculate();
+        element.focus();
+      }
+
+      // Attach Input Event Listeners
+      inputSlope.addEventListener('input', () => handleInput('slope', inputSlope));
+      inputHorizontal.addEventListener('input', () => handleInput('horizontal', inputHorizontal));
+      inputVertical.addEventListener('input', () => handleInput('vertical', inputVertical));
+
+      // Attach Clear Buttons Event Listeners
+      btnClearSlope.addEventListener('click', () => handleClear('slope', inputSlope));
+      btnClearHorizontal.addEventListener('click', () => handleClear('horizontal', inputHorizontal));
+      btnClearVertical.addEventListener('click', () => handleClear('vertical', inputVertical));
+
+      // Formatting on Blur
+      const setupBlurFormat = (inputEl, fieldKey) => {
+        inputEl.addEventListener('blur', () => {
+          if (values[fieldKey] !== null) {
+            inputEl.value = formatNumber(values[fieldKey]);
+          }
+        });
+      };
+
+      setupBlurFormat(inputSlope, 'slope');
+      setupBlurFormat(inputHorizontal, 'horizontal');
+      setupBlurFormat(inputVertical, 'vertical');
+
+      // Initialize calculations and state display on load
+      recalculate();
+    });
+  </script>
+</body>
+</html>
