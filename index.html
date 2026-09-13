@@ -12,9 +12,9 @@
   <meta name="apple-mobile-web-app-title" content="Pendientes" />
   <meta name="description" content="Calculadora de pendientes, distancia horizontal y altura vertical para arquitectura y construcción." />
 
-  <!-- Custom SVG Favicon & Apple Touch Icon (Base64) -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MjQgODEwIiB3aWR0aD0iODI0IiBoZWlnaHQ9IjgxMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsbGVkYnk9InRpdGxlIGRlc2MiPgogIDx0aXRsZSBpZD0idGl0bGUiPkljb25vIGRlIHBvcmNlbnRhamUgeSByYW1wYTwvdGl0bGU+CiAgPGRlc2MgaWQ9ImRlc2MiPkZvbmRvIHR1cnF1ZXNhIGNvbiB1biBzw61tYm9sbyBkZSBwb3JjZW50YWplIGJsYW5jbyB5IHVuYSByYW1wYSB0cmlhbmd1bGFyIGJsYW5jYS48L2Rlc2M+CgogIDxyZWN0IHdpZHRoPSI4MjQiIGhlaWdodD0iODEwIiBmaWxsPSIjMDhjMmI1Ii8+CgogIDwhLS0gUGVyY2VudGFnZSBzeW1ib2wgLS0+CiAgPHBhdGggZmlsbD0iI2ZmZiIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSIKICAgIE0gMjMxIDIxMQogICAgQyAyNjEgMjExIDI4MCAyMzMgMjgwIDI2NgogICAgQyAyODAgMjk5IDI2MSAzMjIgMjMxIDMyMgogICAgQyAyMDEgMzIyIDE4MiAyOTkgMTgyIDI2NgogICAgQyAxODIgMjMzIDIwMSAyM1EgMjMxIDIxMSBaCiAgICBNIDIzMSAyNDMsCiAgICBDIDIyMiAyNDMgMjE3IDI1MiAyMTcgMjY2CiAgICBDIDIxNyAyODAgMjIyIDI5MCAyMzEgMjkwCiAgICBDIDI0MCAyOTAgMjQ0IDI4MCAyNDQgMjY2CiAgICBDIDI0NCAyNTIgMjQwIDI0MyAyMzEgMjQzIFoiLz4KCSA8cGF0aCBkPSJNIDIyNSA0MjQgTCAzODAgMjI1IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMzEiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgoKICA8cGF0aCBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9IgogICAgTSAzNzcgMzI2CiAgICBDIDQwNyAzMjYgNDI3IDM0OCA0MjcgMzgxCiAgICBDIDQyNyA0MTQgNDA3IDQzNyAzNzcgNDM3CiAgICBDIDM0NyA0MzcgMzI3IDQxNCAzMjcgMzgxCiAgICBDIDMyNyAzNDggMzQ3IDMyNiAzNzcgMzI2IFoKICAgIE0gMzc3IDM1NwogICAgQyAzNjggMzU3IDM2NCAzNjcgMzY0IDM4MQogICAgQyAzNjQgMzk1IDM2OCA0MDUgMzc3IDQwNQogICAgQyAzODYgNDA1IDM5MSAzNTcgMzk1IDM4MQogICAgQyAzOTEgMzY3IDM4NiAzNTcgMzc3IDM1NyBaIi8+CgogIDwhLS0gUmFtcCAtLT4KICA8cGF0aCBmaWxsPSIjZmZmIiBkPSIKICAgIE0gMTU4IDY0MQogICAgQyAxNDkgNjQxIDE0MyA2MzUgMTQzIDYyNgogICAgQyAxNDMgNjE5IDE0NyA2MTMgMTUzIDYwOQogICAgTCA2NTUgMzM0CiAgICBDIDY2NSAzMjkgNjc5IDMzNSA2NzkgMzQ2CiAgICBMIDY3OSA2MjUKICAgIEMgNjc5IDYzNSA2NzMgNjQxIDY2MyA2NDEKICAgIFoiLz4KPC9zdmc+Cg==" />
-  <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MjQgODEwIiB3aWR0aD0iODI0IiBoZWlnaHQ9IjgxMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsbGVkYnk9InRpdGxlIGRlc2MiPgogIDx0aXRsZSBpZD0idGl0bGUiPkljb25vIGRlIHBvcmNlbnRhamUgeSByYW1wYTwvdGl0bGU+CiAgPGRlc2MgaWQ9ImRlc2MiPkZvbmRvIHR1cnF1ZXNhIGNvbiB1biBzw61tYm9sbyBkZSBwb3JjZW50YWplIGJsYW5jbyB5IHVuYSByYW1wYSB0cmlhbmd1bGFyIGJsYW5jYS48L2Rlc2M+CgogIDxyZWN0IHdpZHRoPSI4MjQiIGhlaWdodD0iODEwIiBmaWxsPSIjMDhjMmI1Ii8+CgogIDwhLS0gUGVyY2VudGFnZSBzeW1ib2wgLS0+CiAgPHBhdGggZmlsbD0iI2ZmZiIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSIKICAgIE0gMjMxIDIxMQogICAgQyAyNjEgMjExIDI4MCAyMzMgMjgwIDI2NgogICAgQyAyODAgMjk5IDI2MSAzMjIgMjMxIDMyMgogICAgQyAyMDEgMzIyIDE4MiAyOTkgMTgyIDI2NgogICAgQyAxODIgMjMzIDIwMSAyM1EgMjMxIDIxMSBaCiAgICBNIDIzMSAyNDMsCiAgICBDIDIyMiAyNDMgMjE3IDI1MiAyMTcgMjY2CiAgICBDIDIxNyAyODAgMjIyIDI5MCAyMzEgMjkwCiAgICBDIDI0MCAyOTAgMjQ0IDI4MCAyNDQgMjY2CiAgICBDIDI0NCAyNTIgMjQwIDI0MyAyMzEgMjQzIFoiLz4KCSA8cGF0aCBkPSJNIDIyNSA0MjQgTCAzODAgMjI1IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMzEiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgoKICA8cGF0aCBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9IgogICAgTSAzNzcgMzI2CiAgICBDIDQwNyAzMjYgNDI3IDM0OCA0MjcgMzgxCiAgICBDIDQyNyA0MTQgNDA3IDQzNyAzNzcgNDM3CiAgICBDIDM0NyA0MzcgMzI3IDQxNCAzMjcgMzgxCiAgICBDIDMyNyAzNDggMzQ3IDMyNiAzNzcgMzI2IFoKICAgIE0gMzc3IDM1NwogICAgQyAzNjggMzU3IDM2NCAzNjcgMzY0IDM4MQogICAgQyAzNjQgMzk1IDM2OCA0MDUgMzc3IDQwNQogICAgQyAzODYgNDA1IDM5MSAzNTcgMzk1IDM4MQogICAgQyAzOTEgMzY3IDM4NiAzNTcgMzc3IDM1NyBaIi8+CgogIDwhLS0gUmFtcCAtLT4KICA8cGF0aCBmaWxsPSIjZmZmIiBkPSIKICAgIE0gMTU4IDY0MQogICAgQyAxNDkgNjQxIDE0MyA2MzUgMTQzIDYyNgogICAgQyAxNDMgNjE5IDE0NyA2MTMgMTUzIDYwOQogICAgTCA2NTUgMzM0CiAgICBDIDY2NSAzMjkgNjc5IDMzNSA2NzkgMzQ2CiAgICBMIDY3OSA2MjUKICAgIEMgNjc5IDYzNSA2NzMgNjQxIDY2MyA2NDEKICAgIFoiLz4KPC9zdmc+Cg==" />
+  <!-- Fixed SVG Favicon & Apple Touch Icon Placeholder -->
+  <link id="favicon-link" rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MjQgODEwIiB3aWR0aD0iODI0IiBoZWlnaHQ9IjgxMCIgcm9sZT0iaW1nIj48cmVjdCB3aWR0aD0iODI0IiBoZWlnaHQ9IjgxMCIgZmlsbD0iIzA4YzJiNSIvPjxwYXRoIGZpbGw9IiNmZmYiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTSAyMzEgMjExIEMgMjYxIDIxMSAyODAgMjMzIDI4MCAyNjYgQyAyODAgMjk5IDI2MSAzMjIgMjMxIDMyMiBDIDIwMSAzMjIgMTgyIDI5OSAxODIgMjY2IEMgMTgyIDIzMyAyMDEgMjExIDIzMSAyMTEgWiBNIDIzMSAyNDMgQyAyMjIgMjQzIDIxNyAyNTIgMjE3IDI2NiBDIDIxNyAyODAgMjIyIDI5MCAyMzEgMjkwIEMgMjQwIDI5MCAyNDQgMjgwIDI0NCAyNjYgQyAyNDQgMjUyIDI0MCAyNDMgMjMxIDI0MyBaIi8+PHBhdGggZD0iTSAyMjUgNDI0IEwgMzgwIDIyNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjMxIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0gMzc3IDMyNiBDIDQwNyAzMjYgNDI3IDM0OCA0MjcgMzgxIEMgNDI3IDQxNCA0MDcgNDM3IDM3NyA0MzcgQyAzNDcgNDM3IDMyNyA0MTQgMzI3IDM4MSBDIDMyNyAzNDggMzQ3IDMyNiAzNzcgMzI2IFogTSAzNzcgMzU3IEMgMzY4IDM1NyAzNjQgMzY3IDM2NCAzODEgQyAzNjQgMzk1IDM2OCA0MDUgMzc3IDQwNSBDIDM4NiA0MDUgMzkxIDM5NSAzOTEgMzgxIEMgMzkxIDM2NyAzODYgMzU3IDM3NyAzNTcgWiIvPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0gMTU4IDY0MSBDIDE0OSA2NDEgMTQzIDYzNSAxNDMgNjI2IEMgMTQzIDYxOSAxNDcgNjEzIDE1MyA2MDkgTCA2NTUgMzM0IEMgNjY1IDMyOSA2NzkgMzM1IDY3OSAzNDYgTCA2NzkgNjI1IEMgNjc5IDYzNSA2NzMgNjQxIDY2MyA2NDEgWiIvPjwvc3ZnPg==" />
+  <link id="apple-icon-link" rel="apple-touch-icon" href="" />
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -278,29 +278,54 @@
 
   <script>
     (function registerPWA() {
-      const iconSvg = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MjQgODEwIiB3aWR0aD0iODI0IiBoZWlnaHQ9IjgxMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsbGVkYnk9InRpdGxlIGRlc2MiPgogIDx0aXRsZSBpZD0idGl0bGUiPkljb25vIGRlIHBvcmNlbnRhamUgeSByYW1wYTwvdGl0bGU+CiAgPGRlc2MgaWQ9ImRlc2MiPkZvbmRvIHR1cnF1ZXNhIGNvbiB1biBzw61tYm9sbyBkZSBwb3JjZW50YWplIGJsYW5jbyB5IHVuYSByYW1wYSB0cmlhbmd1bGFyIGJsYW5jYS48L2Rlc2M+CgogIDxyZWN0IHdpZHRoPSI4MjQiIGhlaWdodD0iODEwIiBmaWxsPSIjMDhjMmI1Ii8+CgogIDwhLS0gUGVyY2VudGFnZSBzeW1ib2wgLS0+CiAgPHBhdGggZmlsbD0iI2ZmZiIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSIKICAgIE0gMjMxIDIxMQogICAgQyAyNjEgMjExIDI4MCAyMzMgMjgwIDI2NgogICAgQyAyODAgMjk5IDI2MSAzMjIgMjMxIDMyMgogICAgQyAyMDEgMzIyIDE4MiAyOTkgMTgyIDI2NgogICAgQyAxODIgMjMzIDIwMSAyM1EgMjMxIDIxMSBaCiAgICBNIDIzMSAyNDMsCiAgICBDIDIyMiAyNDMgMjE3IDI1MiAyMTcgMjY2CiAgICBDIDIxNyAyODAgMjIyIDI5MCAyMzEgMjkwCiAgICBDIDI0MCAyOTAgMjQ0IDI4MCAyNDQgMjY2CiAgICBDIDI0NCAyNTIgMjQwIDI0MyAyMzEgMjQzIFoiLz4KCSA8cGF0aCBkPSJNIDIyNSA0MjQgTCAzODAgMjI1IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMzEiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgoKICA8cGF0aCBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9IgogICAgTSAzNzcgMzI2CiAgICBDIDQwNyAzMjYgNDI3IDM0OCA0MjcgMzgxCiAgICBDIDQyNyA0MTQgNDA3IDQzNyAzNzcgNDM3CiAgICBDIDM0NyA0MzcgMzI3IDQxNCAzMjcgMzgxCiAgICBDIDMyNyAzNDggMzQ3IDMyNiAzNzcgMzI2IFoKICAgIE0gMzc3IDM1NwogICAgQyAzNjggMzU3IDM2NCAzNjcgMzY0IDM4MQogICAgQyAzNjQgMzk1IDM2OCA0MDUgMzc3IDQwNQogICAgQyAzODYgNDA1IDM5MSAzNTcgMzk1IDM4MQogICAgQyAzOTEgMzY3IDM4NiAzNTcgMzc3IDM1NyBaIi8+CgogIDwhLS0gUmFtcCAtLT4KICA8cGF0aCBmaWxsPSIjZmZmIiBkPSIKICAgIE0gMTU4IDY0MQogICAgQyAxNDkgNjQxIDE0MyA2MzUgMTQzIDYyNgogICAgQyAxNDMgNjE5IDE0NyA2MTMgMTUzIDYwOQogICAgTCA2NTUgMzM0CiAgICBDIDY2NSAzMjkgNjc5IDMzNSA2NzkgMzQ2CiAgICBMIDY3OSA2MjUKICAgIEMgNjc5IDYzNSA2NzMgNjQxIDY2MyA2NDEKICAgIFoiLz4KPC9zdmc+Cg==";
-      const manifest = {
-        name: "Pendientes",
-        short_name: "Pendientes",
-        start_url: ".",
-        display: "standalone",
-        background_color: "#f8fafc",
-        theme_color: "#08c2b5",
-        icons: [
-          {
-            src: iconSvg,
-            sizes: "192x192 512x512",
-            type: "image/svg+xml",
-            purpose: "any maskable"
-          }
-        ]
+      // Corrected SVG code (without coordinate syntax typos)
+      const svgRaw = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 824 810" width="824" height="810"><rect width="824" height="810" fill="#08c2b5"/><path fill="#fff" fill-rule="evenodd" d="M 231 211 C 261 211 280 233 280 266 C 280 299 261 322 231 322 C 201 322 182 299 182 266 C 182 233 201 211 231 211 Z M 231 243 C 222 243 217 252 217 266 C 217 280 222 290 231 290 C 240 290 244 280 244 266 C 244 252 240 243 231 243 Z"/><path d="M 225 424 L 380 225" fill="none" stroke="#fff" stroke-width="31" stroke-linecap="round"/><path fill="#fff" fill-rule="evenodd" d="M 377 326 C 407 326 427 348 427 381 C 427 414 407 437 377 437 C 347 437 327 414 327 381 C 327 348 347 326 377 326 Z M 377 357 C 368 357 364 367 364 381 C 364 395 368 405 377 405 C 386 405 391 395 391 381 C 391 367 386 357 377 357 Z"/><path fill="#fff" d="M 158 641 C 149 641 143 635 143 626 C 143 619 147 613 153 609 L 655 334 C 665 329 679 335 679 346 L 679 625 C 679 635 673 641 663 641 Z"/></svg>`;
+      
+      const svgBase64 = "data:image/svg+xml;base64," + btoa(svgRaw);
+
+      // Convert SVG to high-res PNG for iOS apple-touch-icon compatibility
+      const img = new Image();
+      img.onload = function() {
+        const canvas = document.createElement('canvas');
+        canvas.width = 512;
+        canvas.height = 512;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, 512, 512);
+        
+        const pngDataUrl = canvas.toDataURL('image/png');
+        
+        // Update Apple Touch Icon link with crisp PNG Data URL
+        const appleIconEl = document.getElementById('apple-icon-link');
+        if (appleIconEl) {
+          appleIconEl.href = pngDataUrl;
+        }
+
+        // Register Web App Manifest with PNG icon
+        const manifest = {
+          name: "Pendientes",
+          short_name: "Pendientes",
+          start_url: ".",
+          display: "standalone",
+          background_color: "#f8fafc",
+          theme_color: "#08c2b5",
+          icons: [
+            {
+              src: pngDataUrl,
+              sizes: "512x512",
+              type: "image/png",
+              purpose: "any maskable"
+            }
+          ]
+        };
+        const manifestBlob = new Blob([JSON.stringify(manifest)], { type: 'application/json' });
+        const manifestURL = URL.createObjectURL(manifestBlob);
+        const link = document.createElement('link');
+        link.rel = 'manifest';
+        link.href = manifestURL;
+        document.head.appendChild(link);
       };
-      const manifestBlob = new Blob([JSON.stringify(manifest)], { type: 'application/json' });
-      const manifestURL = URL.createObjectURL(manifestBlob);
-      const link = document.createElement('link');
-      link.rel = 'manifest';
-      link.href = manifestURL;
-      document.head.appendChild(link);
+      
+      img.src = svgBase64;
     })();
 
     document.addEventListener('DOMContentLoaded', () => {
